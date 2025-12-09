@@ -1,0 +1,13 @@
+name: web-lint
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "sync-web/**"
+
+jobs:
+  lint-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Web lint OK"

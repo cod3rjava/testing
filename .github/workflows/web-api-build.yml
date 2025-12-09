@@ -1,0 +1,13 @@
+name: web-api-build
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "sync-api/**"
+
+jobs:
+  api-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "API build passed"

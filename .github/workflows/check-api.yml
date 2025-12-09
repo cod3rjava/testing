@@ -1,0 +1,27 @@
+name: check-api
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "sync-api/**"
+
+jobs:
+  api-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read toggle
+        id: toggle
+        run: |
+          value=$(cat toggle.txt)
+          echo "toggle=$value" >> $GITHUB_OUTPUT
+
+      - name: Fail or Pass
+        run: |
+          if [ "${{ steps.toggle.outputs.toggle }}" = "fail" ]; then
+            echo "Forcing failure"
+            exit 1
+          else
+            echo "Passed"
+          fi

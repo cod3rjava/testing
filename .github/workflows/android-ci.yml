@@ -1,0 +1,13 @@
+name: android-ci
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - "mobiles/android/**"
+
+jobs:
+  android-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Android CI OK"

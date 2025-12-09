@@ -1,0 +1,13 @@
+name: ios-build
+on:
+ pull_request:
+    branches: [ main ]
+    paths:
+      - "mobiles/ios/**"
+
+jobs:
+  ios-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "iOS Build OK"
